@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Volkswagen_NCAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car_Make">
+    <Key>
+      <PropertyRef Name="Make_ID" />
+    </Key>
+    <Property Name="Make_ID" Type="Int32" Nullable="false" />
+    <Property Name="Make_Name" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Car_Model" Relationship="Self.FK__Car_Model__Make___267ABA7A" FromRole="Car_Make" ToRole="Car_Model" />
+  </EntityType>
+  <EntityType Name="Car_Model">
+    <Key>
+      <PropertyRef Name="Model_ID" />
+    </Key>
+    <Property Name="Model_ID" Type="Int32" Nullable="false" />
+    <Property Name="Model_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model_Body_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model_Engine_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model_Price" Type="Int32" />
+    <Property Name="Model_In_Stock" Type="Int32" />
+    <Property Name="Make_ID" Type="Int32" />
+    <Property Name="Model_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Car_Make" Relationship="Self.FK__Car_Model__Make___267ABA7A" FromRole="Car_Model" ToRole="Car_Make" />
+  </EntityType>
+  <Association Name="FK__Car_Model__Make___267ABA7A">
+    <End Role="Car_Make" Type="Self.Car_Make" Multiplicity="0..1" />
+    <End Role="Car_Model" Type="Self.Car_Model" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car_Make">
+        <PropertyRef Name="Make_ID" />
+      </Principal>
+      <Dependent Role="Car_Model">
+        <PropertyRef Name="Make_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Volkswagen_NCAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Car_Make" EntityType="Self.Car_Make" />
+    <EntitySet Name="Car_Model" EntityType="Self.Car_Model" />
+    <AssociationSet Name="FK__Car_Model__Make___267ABA7A" Association="Self.FK__Car_Model__Make___267ABA7A">
+      <End Role="Car_Make" EntitySet="Car_Make" />
+      <End Role="Car_Model" EntitySet="Car_Model" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

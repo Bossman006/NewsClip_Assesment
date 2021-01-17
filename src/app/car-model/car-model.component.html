@@ -1,0 +1,302 @@
+<h3
+  style="
+    font-family: 'Maven Pro';
+    font-weight: bold;
+    /*font-size: 2rem;*/
+    text-decoration: none;
+    background-color: #fff;
+    color: #001844;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cd1543;
+    /*border-radius: 0px 0px 15px 20px;  top left, top right, bottom right, bottom left */
+    width: 25%;
+    padding-top: 15px;
+    margin-left: 37.5%;
+    text-align: center;
+  "
+>
+  Volkswagen Models
+</h3>
+<br />
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-family: 'Calibri'">
+        Add a new Volkswagen model:
+      </mat-panel-title>
+      <mat-panel-description style="font-family: 'Calibri'; font-size: smaller">
+        This is where you add a Model details:
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+      <div class="form-group">
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center">Volkswagen model name:</label>
+        <input
+          name="carModelName"
+          #carModelName="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Model_Name"
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center">Volkswagen model body type:</label>
+        <input
+          name="carModelBody"
+          #carModelBody="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Model_Body_Type"
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center"
+          >Volkswagen model engin type(diesel/petrol):</label
+        >
+        <input
+          name="carModelEngine"
+          #carModelEngine="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Model_Engine_Type"
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center">Volkswagen model price:</label>
+        <input
+          name="carModelPrice"
+          #carModelPrice="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Model_Price"
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center">Volkswagen model stock(being added):</label>
+        <input
+          name="carModelStock"
+          #carModelStock="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Model_In_Stock"
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center">Volkswagen model features:</label>
+        <input
+          name="carMakeID"
+          #carMakeID="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Make_ID"
+          class="form-control"
+        />
+      </fieldset>
+      <fieldset
+        class="form-group col-xs-6"
+        style="font-family: 'Calibri'; font-size: smaller"
+      >
+        <label class="text-center">Volkswagen model features:</label>
+        <input
+          name="carModelDesc"
+          #carModelDesc="ngModel"
+          [(ngModel)]="volkswagenservice.carModelData.Model_Description"
+          class="form-control"
+        />
+      </fieldset>
+      </div>
+    </ng-template>
+    <mat-action-row>
+      <button
+        mat-button
+        type="submit"
+        class="btn btn-success"
+        (click)="AddNewcarModel()"
+      >
+        <i class="fa fa-check-square"> Add</i>
+      </button>
+      <button mat-button type="cancle" class="btn btn-danger">
+        <i class="fa fa-times"> Cancle</i>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-family: 'Calibri'">
+        View the list of Volkswagen models:
+      </mat-panel-title>
+      <mat-panel-description style="font-family: 'Calibri'; font-size: smaller">
+        you can edit and delete records here:
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <ng-template matExpansionPanelContent>
+      <div class="row">
+        <link
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"
+        />
+        <div class="form-group">
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen model name here:</label
+            >
+            <input
+              name="carModelName"
+              #carModelName="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Model_Name"
+              class="form-control"
+            />
+          </fieldset>
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen model body type here:</label
+            >
+            <input
+              name="carModelBody"
+              #carModelBody="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Model_Body_Type"
+              class="form-control"
+            />
+          </fieldset>
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen model engin type(diesel/petrol)
+              here:</label
+            >
+            <input
+              name="carModelEngine"
+              #carModelEngine="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Model_Engine_Type"
+              class="form-control"
+            />
+          </fieldset>
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen model price here:</label
+            >
+            <input
+              name="carModelPrice"
+              #carModelPrice="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Model_Price"
+              class="form-control"
+            />
+          </fieldset>
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen model stock(being edited) here:</label
+            >
+            <input
+              name="carModelStock"
+              #carModelStock="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Model_In_Stock"
+              class="form-control"
+            />
+          </fieldset>
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen make cerial id here:</label
+            >
+            <input
+              name="carMakeID"
+              #carMakeID="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Make_ID"
+              class="form-control"
+            />
+          </fieldset>
+          <fieldset
+            class="form-group col-xs-6"
+            style="font-family: 'Calibri'; font-size: smaller"
+          >
+            <label class="text-center"
+              >Change the Volkswagen model features here:</label
+            >
+            <input
+              name="carModelDesc"
+              #carModelDesc="ngModel"
+              [(ngModel)]="volkswagenservice.carModelData.Model_Description"
+              class="form-control"
+            />
+          </fieldset>
+          <br />
+          <fieldset class="form-group col-xs-6" style="margin-top: 23px">
+            <button class="btn btn-warning" (click)="updatecarModel()">
+              <i class="fa fa-pencil"> Update</i>
+            </button>
+          </fieldset>
+        </div>
+      </div>
+      <table class="table table-borderless">
+        <tr>
+          <th>Name</th>
+          <th>Body Type</th>
+          <th>Engine Type</th>
+          <th>Price(R)</th>
+          <th>Items in stock</th>
+          <th>Make Number(ID)</th>
+          <th>Features</th>
+        </tr>
+        <tr *ngFor="let item of volkswagenservice.carModelList">
+          <td style="font-family: 'Calibri';">{{ item.Model_Name }}</td>
+          <td style="font-family: 'Calibri';">{{ item.Model_Body_Type }}</td>
+          <td style="font-family: 'Calibri';">{{ item.Model_Engine_Type }}</td>
+          <td style="font-family: 'Calibri';">{{ item.Model_Price }}</td>
+          <td style="font-family: 'Calibri';">{{ item.Model_In_Stock }}</td>
+          <td style="font-family: 'Calibri';">{{ item.Make_ID }}</td>
+          <td style="font-family: 'Calibri';">{{ item.Model_Description }}</td>
+
+          <td>
+            <a
+              class="btn btn-sm btn-success text-white ml-1"
+              (click)="carModelUpdate(item)"
+              style="text-align: center"
+              ><i class="fa fa-pencil"></i
+            ></a>
+          </td>
+          <td>
+            <a
+              class="btn btn-sm btn-danger text-white ml-1"
+              (click)="carModelDelete(item.Make_ID)"
+              style="text-align: center"
+              ><i class="fa fa-trash"></i
+            ></a>
+          </td>
+        </tr>
+      </table>
+    </ng-template>
+  </mat-expansion-panel>
+</mat-accordion>

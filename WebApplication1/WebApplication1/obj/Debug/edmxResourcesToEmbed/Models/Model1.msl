@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Volkswagen_NCAModelStoreContainer" CdmEntityContainer="Volkswagen_NCAEntities">
+    <EntitySetMapping Name="Car_Make">
+      <EntityTypeMapping TypeName="Volkswagen_NCAModel.Car_Make">
+        <MappingFragment StoreEntitySet="Car_Make">
+          <ScalarProperty Name="Make_ID" ColumnName="Make_ID" />
+          <ScalarProperty Name="Make_Name" ColumnName="Make_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_Model">
+      <EntityTypeMapping TypeName="Volkswagen_NCAModel.Car_Model">
+        <MappingFragment StoreEntitySet="Car_Model">
+          <ScalarProperty Name="Model_ID" ColumnName="Model_ID" />
+          <ScalarProperty Name="Model_Name" ColumnName="Model_Name" />
+          <ScalarProperty Name="Model_Body_Type" ColumnName="Model_Body_Type" />
+          <ScalarProperty Name="Model_Engine_Type" ColumnName="Model_Engine_Type" />
+          <ScalarProperty Name="Model_Price" ColumnName="Model_Price" />
+          <ScalarProperty Name="Model_In_Stock" ColumnName="Model_In_Stock" />
+          <ScalarProperty Name="Make_ID" ColumnName="Make_ID" />
+          <ScalarProperty Name="Model_Description" ColumnName="Model_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
